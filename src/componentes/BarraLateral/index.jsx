@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import ItemNavegacao from "./ItemNavegacao";
 
-const BarraLateralEstilizado = styled.div`
 
-`
 const ListaEstilizada = styled.ul`
     text-decoration: none;
     list-style-type: none;
 `;
-const ItemEstilizado = styled.li`
-`
+
+
 const BarraLateral = () => {
     
    return(
