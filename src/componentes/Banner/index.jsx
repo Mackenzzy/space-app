@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import BarraLateral from "../BarraLateral";
+
 
 const TituloEstilizado = styled.h1`
     font-weight: 400;
@@ -8,6 +8,7 @@ const TituloEstilizado = styled.h1`
     color: #FFFFFF;
     max-width: 300px;
     padding: 0 64px;
+    font-family: GandhiSansRegular;
 `
 const FigureEstilizada = styled.figure`
     background-image: ${props => `url(${props.$backgroundImage})`};
@@ -24,7 +25,8 @@ const FigureEstilizada = styled.figure`
 
 
 const Banner = ({texto, backgroundImage}) => {
-    return (<FigureEstilizada $backgroundImage={backgroundImage}>
+    return (
+    <FigureEstilizada $backgroundImage={backgroundImage}>
         <TituloEstilizado>{texto}</TituloEstilizado>
     </FigureEstilizada>)
 }
