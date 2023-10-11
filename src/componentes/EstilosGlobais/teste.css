@@ -4,8 +4,18 @@
     margin-bottom: 30px;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    gap: 22px;
+    align-items: end;
+    gap: 22px;  
+background-image: ;
+
+}
+.img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    
 }
 
 @font-face {
