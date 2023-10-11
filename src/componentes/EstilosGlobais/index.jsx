@@ -1,7 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 
 const EstilosGlobais = createGlobalStyle`
-    html {
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@100;200;300;400;600&display=swap');
+
+:root {
+  --font-italiana: 'Italiana', cursive;
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-montserrat);
+}
+
+h1 {
+  font-family: var(--font-italiana);
+}
+
+
+html {
   line-height: 1.15; 
   -webkit-text-size-adjust: 100%; 
 }
