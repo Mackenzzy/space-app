@@ -1,6 +1,7 @@
 import { styled } from "styled-components"
 import EstilosGlobais from './componentes/EstilosGlobais/index'
 import Cabecalho from "./componentes/Cabecalho"
+import BarraLateral from "./componentes/BarraLateral"
 
 
 const FundoGradiente = styled.div`
@@ -17,6 +18,8 @@ function App() {
       <EstilosGlobais/>
       
       <Cabecalho/>
+      <BarraLateral/>
+
     </FundoGradiente>
   )
 }
