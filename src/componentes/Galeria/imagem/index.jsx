@@ -49,23 +49,28 @@ const ImagemEstilizada = styled.img`
 const TextoDiv = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0 10px;
+    line-height: 20px;
     `
 
-const Titulo = styled.h3`
+const Titulo = styled.p`
     color: #fff;
     font-size: 20px;
     font-family: 'GandhiSansBold';
+    border: none;
 `
 
 const Rodape = styled.footer`
-    font-family: 'GandhiSansRegular';
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding: 0px 20px;
 
 `
+const Texto = styled.p`
+    color: #fff;
+    font-size: 16px;
+    font-family: 'GandhiSansRegular';`
+
 const BotoesDiv = styled.div`
     display: flex;
     gap: 10px;
@@ -87,9 +92,10 @@ const Imagem = ({foto}) => {
                 <ImagemEstilizada src={foto.path} alt={foto.titulo}/>
                
                 <Rodape>
-                    <TextoDiv>
-                        <Titulo>{foto.titulo}</Titulo>
-                        <p>{foto.fonte}</p>
+                    <TextoDiv>                        
+                        <Texto>
+                            <Titulo>{foto.titulo}</Titulo>
+                                {foto.fonte}</Texto> 
                     </TextoDiv>
                     
                     <BotoesDiv>
