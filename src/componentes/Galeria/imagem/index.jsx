@@ -1,8 +1,10 @@
 
-const imagem = ({foto}) => {
+
+const Imagem = ({foto}) => {
+
     return (
         <figure>
-            <img src={foto.imagem} alt={foto.titulo}/>
+            <img src={foto.path} alt={foto.titulo}/>
             <figcaption>{foto.titulo}</figcaption>
             <footer>
                 <p>{foto.descricao}</p>
@@ -13,4 +15,4 @@ const imagem = ({foto}) => {
         </figure>
     )
 }
-export default imagem
+export default Imagem
