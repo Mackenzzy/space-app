@@ -1,15 +1,16 @@
+/*
 import styled from "styled-components"
 const Container = styled.div`
-  /* Estilos para todas as telas */
+
   width: 100%;
 
   @media (min-width: 768px) {
-    /* Estilos para telas a partir de 768px */
+
     width: 80%;
   }
 
   @media (min-width: 1200px) {
-    /* Estilos para telas a partir de 1200px */
+
     width: 60%;
   }
 `;
@@ -76,7 +77,7 @@ const BotoesDiv = styled.div`
     gap: 10px;
 
 `
-const Botao = styled.button`
+const BotaoIcone = styled.button`
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -84,27 +85,97 @@ const Botao = styled.button`
 
 
 
-const Imagem = ({foto}) => {
+const Imagem = ({foto, expandida = false, aoZoomSolicitado}) => {
 
     return (
-        <Galeria>
-            <Figure>
+            <Figure $expandida={expandida} id={`foto-${foto.id}`}>
                 <ImagemEstilizada src={foto.path} alt={foto.titulo}/>
-               
-                <Rodape>
-                    <TextoDiv>                        
-                        <Texto>
-                            <Titulo>{foto.titulo}</Titulo>
-                                {foto.fonte}</Texto> 
-                    </TextoDiv>
-                    
-                    <BotoesDiv>
-                        <Botao><img src="./icones/favorito.png" alt="" /></Botao>
-                        <Botao><img src="./icones/expandir.png" alt="" /></Botao>
-                    </BotoesDiv>
-                </Rodape>
+                <figcaption>
+                    <Titulo>{foto.titulo}</Titulo>
+                    <Rodape>                 
+                            <Texto>{foto.fonte}</Texto> 
+                        
+                            <BotaoIcone><img src="./icones/favorito.png" alt="" /></BotaoIcone>
+                            <BotaoIcone>
+                            
+                                <img src="/icones/expandir.png" alt="Icone de expandir" />
+                            </BotaoIcone>
+                    </Rodape>
+                </figcaption>
             </Figure>
-        </Galeria>
     )
 }
+export default Imagem
+*/ 
+
+import { styled } from "styled-components"
+import BotaoIcone from "../../BotaoIcone"
+
+const Galeria = styled.section`
+    display: inline-flex;
+    padding: 10px
+    
+`
+
+const Figure = styled.figure`
+    width: ${props => props.$expandida ? '90%' : '460px'};
+    max-width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    & > img {
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        &:hover{
+        transform: scale(1.1);
+        transition: all 1.0s;
+    }
+    }
+    figcaption {
+        background-color: #001634;
+        border-radius: 0px 0px 20px 20px;
+        color: white;
+        box-sizing: border-box;
+        padding: 12px;
+        h3 {
+            font-family: 'GandhiSansBold';
+        }
+        h4 {
+            flex-grow: 1;
+        }
+        h3, h4 {
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+`
+
+const Rodape = styled.footer`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const Imagem = ({ foto, expandida = false }) => {
+    return (
+    <Galeria>
+    <Figure $expandida={expandida} id={`foto-${foto.id}`}>
+        <img src={foto.path} alt={foto.alt} />
+        <figcaption>
+            <h3>{foto.titulo}</h3>
+            <Rodape>
+                <h4>{foto.fonte}</h4>
+                <BotaoIcone>
+                    <img src="/icones/favorito.png" alt="Icone de favorito" />
+                </BotaoIcone>
+                {!expandida && <BotaoIcone aria-hidden={expandida}>
+                    <img src="/icones/expandir.png" alt="Icone de expandir" />
+                </BotaoIcone>}
+            </Rodape>
+        </figcaption>
+    </Figure>
+    </Galeria>)
+}
+
 export default Imagem
