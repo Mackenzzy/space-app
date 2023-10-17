@@ -51,7 +51,7 @@ const App = () => {
               backgroundImage= {BannerBackground}
             />
             <Galeria 
-            aoFotoSelecionada={foto=> setFotoSelecionada(foto)}
+            aoFotoSelecionada={foto => setFotoSelecionada(foto)}
             fotos={fotosDaGaleria}/>
           </ConteudodaGaleria>
         </MainContainer>

@@ -26,7 +26,7 @@ const Galeria = ({ fotos = [], aoFotoSelecionada }) => {
 
                     {fotos.map((foto =>
                         <Imagem
-                            aoZoomSolitado={aoFotoSelecionada}
+                            aoZoomSolicitado={aoFotoSelecionada}
                             key={foto.id}
                             foto={foto}
                         />))}

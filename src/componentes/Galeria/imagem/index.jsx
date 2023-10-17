@@ -106,14 +106,14 @@ const Imagem = ({foto, expandida = false, aoZoomSolicitado}) => {
     )
 }
 export default Imagem
-*/ 
+*/
 
 import { styled } from "styled-components"
 import BotaoIcone from "../../BotaoIcone"
 
 const Galeria = styled.section`
     display: inline-flex;
-    padding: 10px
+    padding: 10px;
     
 `
 
@@ -157,25 +157,25 @@ const Rodape = styled.footer`
     align-items: center;
 `
 
-const Imagem = ({ foto, expandida = false }) => {
+const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
     return (
-    <Galeria>
-    <Figure $expandida={expandida} id={`foto-${foto.id}`}>
-        <img src={foto.path} alt={foto.alt} />
-        <figcaption>
-            <h3>{foto.titulo}</h3>
-            <Rodape>
-                <h4>{foto.fonte}</h4>
-                <BotaoIcone>
-                    <img src="/icones/favorito.png" alt="Icone de favorito" />
-                </BotaoIcone>
-                {!expandida && <BotaoIcone aria-hidden={expandida}>
-                    <img src="/icones/expandir.png" alt="Icone de expandir" />
-                </BotaoIcone>}
-            </Rodape>
-        </figcaption>
-    </Figure>
-    </Galeria>)
+        <Galeria>
+            <Figure $expandida={expandida} id={`foto-${foto.id}`}>
+                <img src={foto.path} alt={foto.alt} />
+                <figcaption>
+                    <h3>{foto.titulo}</h3>
+                    <Rodape>
+                        <h4>{foto.fonte}</h4>
+                        <BotaoIcone>
+                            <img src="/icones/favorito.png" alt="Icone de favorito" />
+                        </BotaoIcone>
+                        {!expandida && <BotaoIcone aria-hidden={expandida} onClick={() => aoZoomSolicitado(foto)}>
+                            <img src="/icones/expandir.png" alt="Icone de expandir" />
+                        </BotaoIcone>}
+                    </Rodape>
+                </figcaption>
+            </Figure>
+        </Galeria>)
 }
 
 export default Imagem
