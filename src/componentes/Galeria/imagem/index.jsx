@@ -3,41 +3,50 @@ import { styled } from "styled-components"
 import BotaoIcone from "../../BotaoIcone"
 
 const Galeria = styled.section`
-    display: inline-flex;
+    flex-wrap: wrap;
     padding: 10px;
     
 `
 
 const Figure = styled.figure`
     width: ${props => props.$expandida ? '90%' : '460px'};
-    max-width: 100%;
+    max-width:350px;
     margin: 0;
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
     overflow: hidden;
+  
     & > img {
         max-width: 100%;
-        border-radius: 20px 20px 0 0;
         &:hover{
         transform: scale(1.1);
         transition: all 1.0s;
+        
+        
     }
     }
     figcaption {
+        font-family: 'GandhiSansRegular';
+        gap: 8px;
         background-color: #001634;
         border-radius: 0px 0px 20px 20px;
         color: white;
         box-sizing: border-box;
-        padding: 12px;
+        padding: 24px 16px;
+        
         h3 {
             font-family: 'GandhiSansBold';
+            font-size: 16px;
         }
         h4 {
+            font-family: 'GandhiSansRegular';
+            font-size: 12px;
             flex-grow: 1;
+            
         }
         h3, h4 {
-            margin: 0;
-            font-size: 16px;
+            margin: 0;            
         }
     }
 `
@@ -46,6 +55,7 @@ const Rodape = styled.footer`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 `
 
 const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoAlternarFavorito }) => {

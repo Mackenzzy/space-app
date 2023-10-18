@@ -5,10 +5,11 @@ import BarraLateral from "./componentes/BarraLateral"
 import Banner from "./componentes/Banner"
 import bannerBackground from './assets/banner.png'
 import Galeria from "./componentes/Galeria"
-
 import fotos from './fotos.json'
 import { useState } from "react"
 import ModalZoom from "./componentes/ModalZoom"
+import Populares from "./componentes/Galeria/Populares"
+import Tags from "./componentes/Galeria/Tags"
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -17,8 +18,8 @@ const FundoGradiente = styled.div`
 `
 
 const AppContainer = styled.div`
-  width: 1440px;
-  margin: 0 auto;
+  width: 1024px;
+  margin: 0px 24px;
   max-width: 100%;
 `
 
@@ -30,29 +31,34 @@ const MainContainer = styled.main`
 const ConteudoGaleria = styled.section`
   display: flex;
   flex-direction: column;
+  width: 100%;
   flex-grow: 1;
+  `
+const GaleriaDiv = styled.div`
+  display: flex;
+  flex-direction: column;
 `
 
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
-  
+
   const aoAlternarFavorito = (foto) => {
-    if (foto.id === fotoSelecionada?.id){
+    if (foto.id === fotoSelecionada?.id) {
       setFotoSelecionada({
         ...fotoSelecionada,
         favorita: !fotoSelecionada.favorita
       })
     }
-    
+
     setFotosDaGaleria(fotosDaGaleria.map(fotoDaGaleria => {
-      return{
+      return {
         ...fotoDaGaleria,
         favorita: fotoDaGaleria.id === foto.id ? !foto.favorita : fotoDaGaleria.favorita
       }
     }))
   }
-  
+
   return (
     <FundoGradiente>
       <EstilosGlobais />
@@ -65,15 +71,18 @@ const App = () => {
               texto="A galeria mais completa de fotos do espaço!"
               backgroundImage={bannerBackground}
             />
-            <Galeria 
-              aoFotoSelecionada={foto => setFotoSelecionada(foto)} 
-              aoAlternarFavorito={aoAlternarFavorito}
-              fotos={fotosDaGaleria}
-            />
+            <GaleriaDiv>
+              <Galeria
+                aoFotoSelecionada={foto => setFotoSelecionada(foto)}
+                aoAlternarFavorito={aoAlternarFavorito}
+                fotos={fotosDaGaleria}
+              />
+            </GaleriaDiv>
           </ConteudoGaleria>
+          
         </MainContainer>
       </AppContainer>
-      <ModalZoom 
+      <ModalZoom
         foto={fotoSelecionada}
         aoFechar={() => setFotoSelecionada(null)}
         aoAlternarFavorito={aoAlternarFavorito}
