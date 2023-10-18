@@ -2,21 +2,26 @@ import { styled } from "styled-components"
 import BotaoIcone from "../../BotaoIcone"
 
 const Figure = styled.figure`
-    width: ${props => props.$expandida ? '90%' : '460px'};
+    width: ${props => props.$expandida ? '90%' : '390px'};
     max-width: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
     & > img {
         max-width: 100%;
-        border-radius: 20px 20px 0 0;
+        
+        &:hover {
+            transform: scale(1.1);
+            transition: transform 1s ease;
+        }
     }
     figcaption {
         background-color: #001634;
-        border-radius: 0px 0px 20px 20px;
         color: white;
         box-sizing: border-box;
-        padding: 12px;
+        padding: 16px;
         h3 {
             font-family: 'GandhiSansBold';
         }
@@ -24,7 +29,7 @@ const Figure = styled.figure`
             flex-grow: 1;
         }
         h3, h4 {
-            margin: 0;
+            margin:0;
             font-size: 16px;
         }
     }
