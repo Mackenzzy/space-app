@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import tags from './tags.json';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
+import tags from './tags.json'
 
-const SecaoTags = styled.section`
-  display: flex;
-  gap: 24px;
-  color: #fff;
-  font-family: 'GandhiSansRegular';
-  font-size: 24px;
-  padding: 56px 0px;
+const TagsContainer = styled.section`
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    margin-top: 56px;
+`
+
+const TagTitulo = styled.h3`
+    color: #D9D9D9;
+    font-size: 24px;
+    margin: 0;
 `;
 
-const BotaoTag = styled.button`
+const Tag = styled.button`
     font-size: 24px;
     color: #FFFFFF;
     background: rgba(217, 217, 217, 0.3);
@@ -23,24 +26,22 @@ const BotaoTag = styled.button`
     border: 2px solid transparent;
     &:hover {
       border-color: #C98CF1;
-    }`
+    }
+`
+
+const Div = styled.div`
+    display: flex;
+    gap: 24px;
+    justify-content: end;
+`
 
 const Tags = () => {
-  const [Botao, setBotao] = useState(0);
-  const trocarCorBorda = (id) => {
-    setBotao(id)
+    return <TagsContainer>
+        <TagTitulo>Busque por tags:</TagTitulo>
+        <Div>
+            {tags.map(tag => <Tag key={tag.id}>{tag.titulo}</Tag>)}
+        </Div>
+    </TagsContainer>
 }
 
-  return (
-    <SecaoTags>
-      <p>Busque por tags:</p>
-      {tags.map(tag => 
-      <BotaoTag $ativo={tag.id === Botao} key={tag.id} onClick={
-        () => trocarCorBorda(tag.id)}>{tag.titulo}
-        </BotaoTag>)}
-     
-    </SecaoTags>
-  );
-};
-
-export default Tags;
+export default Tags
