@@ -48,7 +48,7 @@ const Rodape = styled.footer`
     align-items: center;
 `
 
-const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
+const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoAlternarFavorito }) => {
     return (
         <Galeria>
             <Figure $expandida={expandida} id={`foto-${foto.id}`}>
