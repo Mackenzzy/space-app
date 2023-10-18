@@ -10,7 +10,6 @@ const Galeria = styled.section`
 
 const Figure = styled.figure`
     width: ${props => props.$expandida ? '90%' : '460px'};
-    max-width:350px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -18,7 +17,6 @@ const Figure = styled.figure`
     overflow: hidden;
   
     & > img {
-        max-width: 100%;
         &:hover{
         transform: scale(1.1);
         transition: all 1.0s;
